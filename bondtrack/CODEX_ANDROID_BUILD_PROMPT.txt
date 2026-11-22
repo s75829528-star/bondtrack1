@@ -1,0 +1,20 @@
+Finish diagnosing and building the BondTrack Android release APK. Do not reimplement app features.
+
+Project: /workspaces/bondtrack1/bondtrack
+Flutter app: /workspaces/bondtrack1/bondtrack/bondtrack
+Android SDK: /workspaces/tools/android-sdk
+Flutter SDK: /workspaces/tools/flutter
+Use JDK 21 at /usr/local/sdkman/candidates/java/21.0.13.0+2-ms.
+
+The app’s code changes are already in place. `flutter analyze`, `flutter test`, and `git diff --check` passed. Earlier Android builds had Gradle daemon exits with little diagnostic output. The latest direct Gradle release build under JDK 21 progressed to `:app:checkReleaseDuplicateClasses`, but was interrupted before completion. Do not assume it failed at that task; inspect the current build outputs and logs first.
+
+Tasks:
+1. Inspect the existing Gradle/Android config and working-tree changes. Preserve all existing user and app changes; do not reset, revert, or clean broadly.
+2. Set the build environment explicitly to JDK 21 and the SDK paths above.
+3. Retry the release build, preferably with:
+   cd /workspaces/bondtrack1/bondtrack/bondtrack/android
+   ./gradlew assembleRelease --no-daemon --console=plain
+4. If it fails, identify the actual first error from the full Gradle output/logs, make only the minimal justified build fix, then retry. Don’t make speculative changes to app code or disable shrinking/minification unless the error specifically requires it.
+5. Verify whether an APK was produced, report its exact path and size, and run `flutter analyze`, `flutter test`, and `git diff --check` if any source/config files were changed.
+
+Report the build result and any remaining blocker clearly. Do not commit changes.

@@ -1,0 +1,74 @@
+name: bondtrack
+description: "BondTrack — Personal Bond Investment Manager"
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.14.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # State management & navigation
+  flutter_riverpod: ^2.6.1
+  go_router: ^18.1.4
+
+  # Persistence
+  drift: ^2.35.4
+  drift_flutter: ^0.3.1
+  path: ^1.9.1
+  path_provider: ^2.1.6
+
+  # Presentation
+  fl_chart: ^1.3.1
+  intl: ^0.20.3
+
+  # Files & spreadsheets
+  file_picker: ^13.4.1
+  excel: ^4.0.6
+  share_plus: ^13.3.1
+
+  # Reminders
+  flutter_local_notifications: ^23.0.3
+  timezone: ^0.11.2
+  flutter_timezone: ^5.1.1
+  cryptography: ^2.9.0
+  flutter_secure_storage: ^11.2.0
+  local_auth: ^3.0.2
+  crypto: ^3.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  drift_dev: ^2.35.3
+  build_runner: ^2.17.1
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/fonts/
+  fonts:
+    - family: Manrope
+      fonts:
+        - asset: assets/fonts/Manrope-400.ttf
+          weight: 400
+        - asset: assets/fonts/Manrope-500.ttf
+          weight: 500
+        - asset: assets/fonts/Manrope-600.ttf
+          weight: 600
+        - asset: assets/fonts/Manrope-700.ttf
+          weight: 700
+        - asset: assets/fonts/Manrope-800.ttf
+          weight: 800
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: assets/icon/app_icon.png
+  adaptive_icon_background: "#0B1F3A"
+  adaptive_icon_foreground: assets/icon/app_icon_foreground.png
+  min_sdk_android: 23
